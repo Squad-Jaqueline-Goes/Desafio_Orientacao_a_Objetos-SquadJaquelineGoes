@@ -1,0 +1,26 @@
+name: Check for Merge Conflicts
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-conflicts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Check for merge conflicts
+      run: |
+        git fetch origin main
+        git merge --no-commit --no-ff origin/main || (echo "Merge conflicts detected!" && exit 1)
+
+    - name: Notify about conflicts
+      if: failure()
+      run: echo "There are merge conflicts. Please resolve them before merging."
