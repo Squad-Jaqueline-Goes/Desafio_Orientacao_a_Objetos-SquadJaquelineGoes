@@ -1,6 +1,6 @@
 # Squad Jaqueline_Goes 🔬🧬 - Turma 3 Bootcamp Back-End Python e Django - WoMakers Code 🦋
 
-Bem-vindos ao repositório do nosso squad! Neste repositório encontram-se as atividades e Projetos referentes a POO realizados durante o Bootcamp
+Bem-vindos ao repositório do nosso squad! Neste repositório encontram-se as atividades e Projetos realizados durante o Bootcamp
 
 ## Liderança do Squad 🌟
 
@@ -15,18 +15,6 @@ Bem-vindos ao repositório do nosso squad! Neste repositório encontram-se as at
 - **Juliana de Jesus Portela** - [GitHub](https://github.com/JulianaPortehla) - [LinkedIn](https://www.linkedin.com/in/juliana-portela-a2799a6b/)
 - **Roberta da Silva de Oliveira** - [GitHub](https://github.com/RobertaOliveira07) - [LinkedIn](https://www.linkedin.com/in/roberta-oliveira07/) 
 - **Yasmin Souza Camargo** - [GitHub](https://github.com/Yasmin-Camargo) - [LinkedIn](https://www.linkedin.com/in/yasmin-souza-camargo-4a036b163/)
-
-## Organização do Projeto 🗂️
-
-Para gerenciar o projeto, utilizamos a seguinte estrutura:
-
-- **Branches**: 
-  - **Branch Principal**: `main` 
-  - **Branch para cada parte do desafio**: `[NomeDesafio]_Squad_Jaqueline_Goes` - Para desenvolvimento dos exercicios propostos.
-
-- **Estrutura de Pastas**:
-  - **Pasta `Exercicio_XX`**: 
-    - Para cada parte do exercício existe uma pasta, contendo dentro dela o arquivo Python com a resolução correspondente.
 
 ## Divisão de Tarefas 🔄
 
