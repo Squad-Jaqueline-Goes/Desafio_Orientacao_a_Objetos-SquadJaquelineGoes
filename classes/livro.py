@@ -94,7 +94,11 @@ class Livro:
         self.__autores = autores
 
     # IMPLEMENTAR: metodo para adicionar exemplares
-
-    # IMPLEMENTAR: método para remover exemplares
+    
+    def remover_exemplar(self, exemplar):
+        """Remove um exemplar da lista de exemplares."""
+        if exemplar not in self.__exemplares:
+            raise ValueError('O exemplar especificado não está na lista de exemplares.')
+        self.__exemplares.remove(exemplar)
 
     # IMPLEMENTAR: método para verificar se um livro está disponível
