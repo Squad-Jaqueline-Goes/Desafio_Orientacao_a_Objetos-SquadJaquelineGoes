@@ -93,7 +93,10 @@ class Livro:
                 raise ValueError('Autor é do tipo incorreto')
         self.__autores = autores
 
-    # IMPLEMENTAR: metodo para adicionar exemplares
+    def adicionar_exemplar(self, exemplar):
+        if exemplar in self.__exemplares: # Verifica se o exemplar já está na lista
+            raise ValueError('O exemplar já está na lista de exemplares.')
+        self.__exemplares.append(exemplar) # Adiciona o exemplar a lista
     
     def remover_exemplar(self, exemplar):
         """Remove um exemplar da lista de exemplares."""
