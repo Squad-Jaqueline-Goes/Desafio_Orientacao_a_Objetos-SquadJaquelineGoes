@@ -105,3 +105,24 @@ class Livro:
         self.__exemplares.remove(exemplar)
 
     # IMPLEMENTAR: método para verificar se um livro está disponível
+
+    def __str__(self):
+        autores_str = ""
+        for autor in self.autores:
+            autores_str += str(autor) + ", "
+        autores_str = autores_str[:-2]  # Remove a última vírgula e espaço
+
+        generos_str = ""
+        for genero in self.generos:
+            generos_str += genero + ", "
+        generos_str = generos_str[:-2]  # Remove a última vírgula e espaço
+
+        exemplares_count = len(self.exemplares) if self.exemplares else 0
+        max_renovacoes = self.num_maximo_renovacoes if self.num_maximo_renovacoes is not None else 'Sem limite'
+
+        return (f"Título: {self.titulo}, \n"
+                f"Editora: {self.editora}, \n"
+                f"Gêneros: {generos_str}, \n"
+                f"Autores: {autores_str}, \n"
+                f"Exemplares: {exemplares_count}, \n"
+                f"Número Máximo de Renovações: {max_renovacoes}")

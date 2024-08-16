@@ -4,9 +4,9 @@ from classes.exemplar import Exemplar
 
 class Emprestimo:
     def __init__(self, data_emprestimo, data_devolucao, usuario, exemplar, renovar_emprestimo):
-        if not isinstance(usuario):
+        if not isinstance(usuario, Usuario):
             raise ValueError("usuario deve ser uma instância da classe Usuario")
-        if not isinstance(exemplar):
+        if not isinstance(exemplar, Exemplar):
             raise ValueError("exemplar deve ser uma instância da classe Exemplar")
 
         self.__data_emprestimo = data_emprestimo

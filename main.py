@@ -4,25 +4,47 @@ from classes.autor import Autor
 from classes.livro import Livro
 from classes.exemplar import Exemplar 
 from classes.emprestimo import Emprestimo
-
+from datetime import datetime
 
 try:
-    # testes
-    autor1 = Autor('Fulano', 'Brasileiro', '123456789') 
-    autor2 = Autor('Ciclano', 'Brasileiro', '987654321')
+    # autor
+    autor1 = Autor('Fulano', 'Brasileiro') 
+    autor2 = Autor('Ciclano', 'Brasileiro')
+    print('\n--- CRIANDO AUTOR ----')
+    print(autor1)
+    print(autor2)
+
+    # livro
+    print('\n--- CRIANDO LIVRO ----')
     autores = [autor1, autor2]
-    livro = Livro('Python para iniciantes', 'Editora A', 'Tecnologia', autores) # caso que funciona
+    livro = Livro('Python para iniciantes', 'Editora A', 'Tecnologia', autores) 
+    print(livro)
 
-    # testando algumas exceções
-    livro = Livro('', 'Editora A', 'Tecnologia', autores, 2) # erro: O Livro deve possuir um Título
-    livro = Livro('Python para Iniciantes', '', ['Tecnologia'], autores)  # Erro: O Livro deve possuir uma Editora
-    livro = Livro('Python para Iniciantes', 'Editora A', [123], autores)  # Erro: Gênero deve ser uma string
-    exemplares_invalidos = [1, 2, 3]
-    livro = Livro('Python para Iniciantes', 'Editora A', ['Tecnologia'], autores, exemplares_invalidos)  # Erro: Exemplar é do tipo incorreto
-    livro = Livro('Python para Iniciantes', 'Editora A', ['Tecnologia'], autores, num_maximo_renovacoes=-1)  # Erro: Número máximo de renovações não pode ser negativo
-    livro = Livro('Python para Iniciantes', 'Editora A', ['Tecnologia'], autores, num_maximo_renovacoes='três')  # Erro: Número máximo de renovações deve ser um inteiro
-    autores_invalidos = ['não é um Autor']
-    livro = Livro('Python para Iniciantes', 'Editora A', ['Tecnologia'], autores_invalidos)  # Erro: Autor é do tipo incorreto
+    # usuário
+    print('\n--- CRIANDO USUARIO ----')
+    usuario = Usuario('Fulano', '123456789', 'Brasileiro') 
+    print(usuario)
 
+    # exemplar
+    print('\n--- CRIANDO EXEMPLAR ----')
+    exemplar1 = Exemplar("1", "Python para iniciantes", "disponível", 2)
+    exemplar2 = Exemplar("2", "Python para iniciantes", "disponível", 2)
+    print(exemplar1)
+    print(exemplar2)
+
+    # associar livro ao exemplar
+    print('\n--- ASSOCIANDO LIVRO AO EXEMPLAR ----')
+    livro.adicionar_exemplar(exemplar1)
+    livro.adicionar_exemplar(exemplar2)
+    print(livro)
+
+    # empréstimo
+    print('\n--- CRIANDO EMPRESTIMO ----')
+    data_emprestimo = datetime.strptime('01/01/2021', '%d/%m/%Y').date()
+    data_devolucao = datetime.strptime('01/02/2021', '%d/%m/%Y').date()
+    emprestimo = Emprestimo(data_emprestimo, data_devolucao, usuario, exemplar1, False)
+
+
+   
 except Exception as e:
     print(e)
