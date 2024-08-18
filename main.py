@@ -6,43 +6,67 @@ from classes.exemplar import Exemplar
 from classes.emprestimo import Emprestimo
 from datetime import datetime
 
-try:
-    # autor
+#autor
+def criar_autores():
     autor1 = Autor('Fulano', 'Brasileiro') 
     autor2 = Autor('Ciclano', 'Brasileiro')
+    return [autor1, autor2]
+    
+#livro
+def criar_livro(autores):
+    return Livro('Python para iniciantes', 'Editora A', 'Tecnologia', autores) 
+
+
+#usuario
+def criar_usuario():
+    return Usuario('Fulano', '123456789', 'Brasileiro') 
+
+#exemplar
+def criar_exemplares():
+    exemplar1 = Exemplar("1", "Python para iniciantes", "disponível", 2)
+    exemplar2 = Exemplar("2", "Python para iniciantes", "disponível", 2)
+    return [exemplar1, exemplar2]
+
+# emprestimo
+def registrar_emprestimo(usuario, exemplar):
+    data_emprestimo = datetime.strptime('01/01/2021', '%d/%m/%Y').date()
+    data_devolucao = datetime.strptime('01/02/2021', '%d/%m/%Y').date()
+    emprestimo = Emprestimo(data_emprestimo, data_devolucao, usuario, exemplar, False)
+    return emprestimo
+
+try:
+    # chamando a função p/ criar autor
+    autores = criar_autores()
     print('\n--- CRIANDO AUTOR ----')
-    print(autor1)
-    print(autor2)
+    for autor in autores:
+        print(autor)
 
     # livro
+    livro = criar_livro(autores)
     print('\n--- CRIANDO LIVRO ----')
-    autores = [autor1, autor2]
-    livro = Livro('Python para iniciantes', 'Editora A', 'Tecnologia', autores) 
     print(livro)
 
     # usuário
+    usuario = criar_usuario()
     print('\n--- CRIANDO USUARIO ----')
-    usuario = Usuario('Fulano', '123456789', 'Brasileiro') 
     print(usuario)
 
     # exemplar
+    exemplares = criar_exemplares
     print('\n--- CRIANDO EXEMPLAR ----')
-    exemplar1 = Exemplar("1", "Python para iniciantes", "disponível", 2)
-    exemplar2 = Exemplar("2", "Python para iniciantes", "disponível", 2)
-    print(exemplar1)
-    print(exemplar2)
+    for exemplar in exemplares:
+        print(exemplar)
 
     # associar livro ao exemplar
     print('\n--- ASSOCIANDO LIVRO AO EXEMPLAR ----')
-    livro.adicionar_exemplar(exemplar1)
-    livro.adicionar_exemplar(exemplar2)
+    for exemplar in exemplares:
+        livro.adicionar_exemplar(exemplar)
     print(livro)
 
     # empréstimo
+    emprestimo = registrar_emprestimo(usuario, exemplar)
     print('\n--- CRIANDO EMPRESTIMO ----')
-    data_emprestimo = datetime.strptime('01/01/2021', '%d/%m/%Y').date()
-    data_devolucao = datetime.strptime('01/02/2021', '%d/%m/%Y').date()
-    emprestimo = Emprestimo(data_emprestimo, data_devolucao, usuario, exemplar1, False)
+    print(emprestimo)
 
 
    

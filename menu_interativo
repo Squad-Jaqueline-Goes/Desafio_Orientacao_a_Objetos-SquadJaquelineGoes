@@ -1,0 +1,59 @@
+from datetime import datetime
+from classes.livro import Livro
+from classes.autor import Autor
+from classes.emprestimo import Emprestimo
+from classes.exemplar import Exemplar
+from classes.item_biblioteca import ItemBiblioteca
+from classes.pessoa import Pessoa
+from classes.usuario import Usuario
+from main import criar_autores, criar_livro, criar_usuario, criar_exemplares, registrar_emprestimo
+
+
+# Menu principal
+def menu_principal():
+    while True:
+        print("\n--- Sistema de Biblioteca ---")
+        print("1. Adicionar Livro\n"
+                "2. Verificar Disponibilidade\n"
+                "3. Registrar Empréstimo\n"
+                "4. Devolver Exemplar\n"
+                "5. Renovar Empréstimo\n"
+                "6. Criar usuário\n"
+                "7. Sair"
+        )
+        
+        opcao = int(input("Escolha uma opção: "))
+        
+        if opcao == 1:
+            global autores
+            global livro
+            autores = criar_autores()
+            livro = criar_livro()
+            print(f'"{livro}" adicionado com sucesso!')
+            
+        elif opcao == 2:
+            verificar_disponibilidade()
+            
+        elif opcao == 3:
+            registrar_emprestimo()
+            
+        elif opcao == 4:
+            devolver_exemplar()
+            
+        elif opcao == 5:
+            renovar_emprestimo()
+            
+        elif opcao == 6:
+            global usuario
+            usuario = criar_usuario()
+            print(f'"{usuario}" criado com sucesso!')
+            
+        elif opcao == 7:
+            print('Saindo..')
+            break
+        else:
+            print("Opção inválida! Tente novamente.")
+
+# Iniciar o menu principal
+if __name__ == "__main__":
+    menu_principal()
