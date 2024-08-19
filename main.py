@@ -74,7 +74,7 @@ def registrar_emprestimo():
 
     for livro in livros:
         if livro.titulo.lower() == titulo.lower():
-            exemplares_disponiveis = [exemplar for exemplar in livro.exemplares if exemplar.estado == "disponível"]
+            exemplares_disponiveis = [exemplar for exemplar in livro.exemplares if exemplar.get_informacoes()["estado"] == "disponível"]
             if exemplares_disponiveis:
                 print("Exemplares disponíveis:")
                 for exemplar in exemplares_disponiveis:
@@ -86,6 +86,7 @@ def registrar_emprestimo():
                     data_devolucao = input("Digite a data de devolução (DD/MM/AAAA): ")
                     emprestimo = Emprestimo(data_emprestimo, data_devolucao, exemplar, usuario, renovar_emprestimo())
                     emprestimo.registrar_emprestimo()
+                    exemplar.emprestimo_atual = emprestimo
                     print(f"Empréstimo registrado com sucesso! Data de devolução: {data_devolucao}")
                 else:
                     print("Exemplar não encontrado.")
@@ -103,6 +104,7 @@ def devolver_exemplar():
         exemplar = next((exemplar for exemplar in livro.exemplares if exemplar.id == id_exemplar), None)
         if exemplar:
             emprestimo = exemplar.emprestimo_atual
+            exemplar.emprestimo_atual = None
             if emprestimo:
                 emprestimo.registrar_devolucao()
                 print(f"Exemplar {id_exemplar} devolvido com sucesso!")

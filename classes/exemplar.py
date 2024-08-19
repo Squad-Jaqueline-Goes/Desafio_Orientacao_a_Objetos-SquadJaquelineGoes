@@ -4,6 +4,7 @@ class Exemplar(ItemBiblioteca):
         super().__init__(id, titulo)
         self.__estado = estado
         self.__max_renovacoes = max_renovacoes
+        self.__emprestimo_atual = None
 
     """
     A classe Exemplar herda da classe abstrata ItemBiblioteca e adiciona
@@ -50,6 +51,14 @@ class Exemplar(ItemBiblioteca):
 
     def associar_livro(self, livro):
         self.livro = livro
+
+    @property
+    def emprestimo_atual(self):
+        return self.__emprestimo_atual
+    
+    @emprestimo_atual.setter
+    def emprestimo_atual(self, emprestimo):
+        self.__emprestimo_atual = emprestimo
 
     def __str__(self):
         return f"Exemplar ID: {self._id}, Estado: {self.__estado}, Max Renov: {self.__max_renovacoes}, Disponível: {self._disponivel}"
