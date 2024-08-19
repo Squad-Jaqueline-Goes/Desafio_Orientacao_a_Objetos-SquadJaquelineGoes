@@ -38,4 +38,4 @@ class ItemBiblioteca(ABC):
         pass
 
     def __str__(self):
-        return f"ItemBiblioteca(ID: {self._id}, Título: {self._titulo}, Disponível: {self._disponivel})"
+        return f"Item Biblioteca(ID: {self._id}, Título: {self._titulo}, Disponível: {self._disponivel})"
