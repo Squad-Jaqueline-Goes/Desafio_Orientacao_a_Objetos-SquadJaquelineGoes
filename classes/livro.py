@@ -106,6 +106,10 @@ class Livro:
 
     # IMPLEMENTAR: método para verificar se um livro está disponível
 
+    def verificar_disponibilidade(self):
+        # Retorna True se houver pelo menos um exemplar disponível, False caso contrário
+        return any(exemplar.get_informacoes()['estado'] == "disponível" for exemplar in self.exemplares)
+
     def __str__(self):
         autores_str = ""
         for autor in self.autores:
