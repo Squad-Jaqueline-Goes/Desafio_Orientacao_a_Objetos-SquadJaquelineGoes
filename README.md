@@ -18,9 +18,8 @@ Bem-vindos ao repositório do nosso squad! Neste repositório encontram-se as at
 
 ## Divisão de Tarefas 🔄
 
-A divisão das tarefas foi realizada por sorteio, sendo distribuída de maneira uniforme.
-- O detalhamento da divisão das tarefas encontra-se no documento: `Separação_das_atividades.md`
-- Os exercícios são enviados às branches correspondentes via pull request, garantindo a revisão e integração das soluções.
+A divisão das tarefas foi realizada por meio de uma conversa interna entre o Squad.
+- Utilizamos uma Branch chamada 'Dev' para os devidos testes.
 
 ## Reuniões e Comunicação 📅
 
